@@ -1,417 +1,248 @@
+import { Link } from "react-router-dom";
+import Layout from "@/components/Layout";
 import Icon from "@/components/ui/icon";
 
-const HERO_IMAGE =
-  "https://cdn.poehali.dev/projects/c0e92f1d-0619-490e-8791-44b7c6bd05df/files/750a5a33-83cf-4830-ace8-d7c761e9302c.jpg";
-
-const NAV_LINKS = ["About", "Mission", "Team", "Productions", "Get Involved", "Contact"];
+const HERO_IMG = "https://cdn.poehali.dev/projects/c0e92f1d-0619-490e-8791-44b7c6bd05df/files/750a5a33-83cf-4830-ace8-d7c761e9302c.jpg";
 
 export default function Index() {
   return (
-    <div style={{ backgroundColor: "var(--bg-cream)", minHeight: "100vh" }}>
-
-      {/* ── ANNOUNCEMENT ── */}
-      <div style={{ backgroundColor: "var(--accent)", padding: "0.55rem 2.5rem", textAlign: "center" }}>
-        <p style={{ fontFamily: "DM Sans, sans-serif", fontSize: "0.72rem", letterSpacing: "0.1em", color: "#fff", fontWeight: 400 }}>
-          A nonprofit teen theater company in Rockland County &nbsp;·&nbsp; Now enrolling for 2025 productions
-        </p>
-      </div>
-
-      {/* ── HEADER ── */}
-      <header style={{
-        position: "sticky", top: 0, zIndex: 50,
-        backgroundColor: "rgba(253,250,245,0.96)",
-        backdropFilter: "blur(12px)",
-        borderBottom: "1px solid var(--border-light)",
-        boxShadow: "0 1px 8px rgba(26,22,18,0.05)",
-      }}>
-        <div style={{
-          maxWidth: "1360px", margin: "0 auto", padding: "1.1rem 2.5rem",
-          display: "flex", alignItems: "center", justifyContent: "space-between",
-        }}>
-          <a href="#" style={{ textDecoration: "none", display: "flex", flexDirection: "column", gap: "2px" }}>
-            <span className="heading-display" style={{ fontSize: "1.45rem", letterSpacing: "0.01em", color: "var(--text-dark)", lineHeight: 1 }}>
-              Next Scene NY
-            </span>
-            <span style={{ fontFamily: "DM Sans, sans-serif", fontSize: "0.55rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--text-muted)" }}>
-              Teen Theater Company
-            </span>
-          </a>
-
-          <nav style={{ display: "flex", alignItems: "center", gap: "2.5rem" }}>
-            {NAV_LINKS.map((item) => (
-              <a key={item} href={`#${item.toLowerCase().replace(" ", "-")}`} className="nav-link">
-                {item}
-              </a>
-            ))}
-          </nav>
-
-          <a href="#get-involved" className="btn-primary" style={{ fontSize: "0.7rem" }}>
-            Support Us
-          </a>
-        </div>
-      </header>
+    <Layout>
 
       {/* ── HERO ── */}
-      <section style={{ position: "relative", height: "90vh", minHeight: "640px", overflow: "hidden", display: "flex", alignItems: "flex-end" }}>
-        <div style={{
-          position: "absolute", inset: 0,
-          backgroundImage: `url(${HERO_IMAGE})`,
-          backgroundSize: "cover", backgroundPosition: "center 20%",
-        }} />
-        <div style={{
-          position: "absolute", inset: 0,
-          background: "linear-gradient(to top, rgba(26,22,18,0.88) 0%, rgba(26,22,18,0.48) 40%, rgba(26,22,18,0.12) 80%)",
-        }} />
+      <section style={{ position: "relative", height: "88vh", minHeight: "660px", overflow: "hidden", display: "flex", alignItems: "center" }}>
+        <div style={{ position: "absolute", inset: 0, backgroundImage: `url(${HERO_IMG})`, backgroundSize: "cover", backgroundPosition: "center 25%" }} />
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(105deg, rgba(14,15,18,0.93) 0%, rgba(14,15,18,0.72) 45%, rgba(14,15,18,0.28) 100%)" }} />
 
-        <div style={{ position: "relative", zIndex: 2, maxWidth: "1360px", margin: "0 auto", padding: "0 2.5rem 5.5rem", width: "100%" }}>
-          <div style={{ maxWidth: "760px" }}>
-            <p className="section-label animate-reveal" style={{ marginBottom: "1.2rem", color: "#D4A07A" }}>
-              Rockland County · Est. 2025
-            </p>
-            <h1 className="heading-display animate-reveal delay-100" style={{
-              fontSize: "clamp(3.2rem, 5.5vw, 5.8rem)",
-              color: "#FDFAF5",
-              marginBottom: "1.4rem",
-              letterSpacing: "-0.01em",
-              lineHeight: 1.05,
+        <div style={{ position: "relative", zIndex: 2, maxWidth: "1340px", margin: "0 auto", padding: "0 2.5rem", width: "100%" }}>
+          <div style={{ maxWidth: "680px" }}>
+            <div className="animate-reveal" style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "1.5rem" }}>
+              <div style={{ width: "32px", height: "2px", backgroundColor: "var(--accent)" }} />
+              <span className="section-label">Rockland County · Est. 2025</span>
+            </div>
+
+            <h1 className="animate-reveal delay-100" style={{
+              fontFamily: "Cormorant Garamond, serif",
+              fontSize: "clamp(3.4rem, 5.5vw, 5.6rem)",
+              fontWeight: 400, lineHeight: 1.04,
+              color: "var(--text-primary)", letterSpacing: "-0.01em", marginBottom: "1.5rem",
             }}>
-              The Next Generation<br />
-              <em style={{ fontStyle: "italic", color: "#E8C9A0" }}>of Theater Starts Here</em>
+              The Next Generation<br />of Theater<br />
+              <em style={{ fontStyle: "italic", color: "var(--accent-soft)" }}>Starts Here</em>
             </h1>
+
             <p className="animate-reveal delay-200" style={{
-              fontFamily: "DM Sans, sans-serif",
-              fontSize: "1rem", fontWeight: 300,
-              color: "rgba(253,250,245,0.75)",
-              lineHeight: 1.75, maxWidth: "520px", marginBottom: "2.5rem",
+              fontFamily: "DM Sans, sans-serif", fontSize: "1rem", fontWeight: 300,
+              color: "rgba(245,241,232,0.72)", lineHeight: 1.75, maxWidth: "500px", marginBottom: "2.5rem",
             }}>
-              A nonprofit theater company led entirely by teens — creating professional-quality productions
-              and expanding access to the arts in Rockland County.
+              A teen-founded and teen-led nonprofit theater company creating productions, performances, and opportunities for young artists in Rockland County.
             </p>
+
             <div className="animate-reveal delay-300" style={{ display: "flex", gap: "0.9rem" }}>
-              <a href="#productions" className="btn-primary">Explore Productions</a>
-              <a href="#get-involved" style={{
-                display: "inline-flex", alignItems: "center", gap: "0.5rem",
-                color: "rgba(253,250,245,0.85)", fontFamily: "DM Sans, sans-serif",
-                fontSize: "0.75rem", fontWeight: 500, letterSpacing: "0.1em",
-                textTransform: "uppercase", padding: "0.85rem 2rem",
-                border: "1.5px solid rgba(253,250,245,0.35)",
-                transition: "border-color 0.2s", textDecoration: "none",
-              }}>
-                Support the Mission
-              </a>
+              <Link to="/productions" className="btn-red">
+                <Icon name="Theater" size={14} />
+                Upcoming Productions
+              </Link>
+              <Link to="/about" className="btn-ghost">
+                About Next Scene
+              </Link>
             </div>
           </div>
         </div>
 
-        <div style={{
-          position: "absolute", bottom: "2rem", right: "2.5rem",
-          display: "flex", flexDirection: "column", alignItems: "center", gap: "0.5rem", zIndex: 2,
-        }}>
-          <span style={{ fontFamily: "DM Sans, sans-serif", fontSize: "0.6rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "rgba(253,250,245,0.4)", writingMode: "vertical-rl" }}>Scroll</span>
-          <div style={{ width: "1px", height: "48px", background: "linear-gradient(to bottom, rgba(253,250,245,0.4), transparent)" }} />
+        <div style={{ position: "absolute", bottom: "2.5rem", left: "50%", transform: "translateX(-50%)", zIndex: 2, display: "flex", flexDirection: "column", alignItems: "center", gap: "0.4rem" }}>
+          <div style={{ width: "1px", height: "44px", background: "linear-gradient(to bottom, transparent, rgba(245,241,232,0.25))" }} />
+          <Icon name="ChevronDown" size={13} style={{ color: "rgba(245,241,232,0.25)" }} />
         </div>
       </section>
 
-      {/* ── VALUE STRIP ── */}
-      <div style={{ backgroundColor: "var(--bg-white)", borderBottom: "1px solid var(--border-light)", boxShadow: "var(--shadow-sm)" }}>
-        <div style={{ maxWidth: "1360px", margin: "0 auto", padding: "0 2.5rem", display: "grid", gridTemplateColumns: "repeat(4, 1fr)" }}>
-          {[
-            { icon: "Star", label: "Teen-Founded", desc: "Created by students, for students" },
-            { icon: "Users", label: "Entirely Teen-Led", desc: "Every role held by young artists" },
-            { icon: "Gift", label: "No Tuition", desc: "Free participation for all teens" },
-            { icon: "Heart", label: "Inclusive Access", desc: "Onstage and off, everyone belongs" },
-          ].map((item, i) => (
-            <div key={i} style={{
-              padding: "2rem",
-              borderRight: i < 3 ? "1px solid var(--border-light)" : "none",
-              display: "flex", alignItems: "center", gap: "1.2rem",
-            }}>
-              <div style={{
-                width: "40px", height: "40px", flexShrink: 0,
-                backgroundColor: "var(--accent-light)",
-                display: "flex", alignItems: "center", justifyContent: "center",
-              }}>
-                <Icon name={item.icon} size={16} style={{ color: "var(--accent)" }} />
-              </div>
-              <div>
-                <p className="heading-display" style={{ fontSize: "1.05rem", marginBottom: "0.15rem" }}>{item.label}</p>
-                <p style={{ fontFamily: "DM Sans, sans-serif", fontSize: "0.75rem", color: "var(--text-muted)", fontWeight: 300 }}>{item.desc}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* ── ABOUT ── */}
-      <section id="about" style={{ maxWidth: "1360px", margin: "0 auto", padding: "8rem 2.5rem" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1.5fr", gap: "7rem", alignItems: "center" }}>
-          {/* Image block */}
-          <div style={{ position: "relative" }}>
-            <div style={{
-              position: "absolute", top: "-16px", left: "-16px",
-              width: "100%", height: "100%",
-              border: "2px solid var(--accent)", zIndex: 0,
-            }} />
-            <div style={{
-              position: "relative", zIndex: 1,
-              aspectRatio: "4/5",
-              backgroundImage: `url(${HERO_IMAGE})`,
-              backgroundSize: "cover", backgroundPosition: "center top",
-              boxShadow: "var(--shadow-lg)",
-            }} />
-            <div style={{
-              position: "absolute", bottom: "-1.5rem", right: "-1.5rem", zIndex: 2,
-              backgroundColor: "var(--accent)", padding: "1.5rem",
-              boxShadow: "var(--shadow-md)", textAlign: "center",
-            }}>
-              <p className="heading-display" style={{ fontSize: "2.4rem", color: "#fff", lineHeight: 1 }}>1st</p>
-              <p style={{ fontFamily: "DM Sans, sans-serif", fontSize: "0.6rem", color: "rgba(255,255,255,0.8)", letterSpacing: "0.12em", textTransform: "uppercase", marginTop: "0.3rem" }}>In Rockland County</p>
-            </div>
-          </div>
-
-          {/* Text */}
-          <div>
-            <p className="section-label" style={{ marginBottom: "1.2rem" }}>About</p>
-            <h2 className="heading-display" style={{ fontSize: "clamp(2.4rem, 3.5vw, 3.5rem)", marginBottom: "0.4rem" }}>By the next generation</h2>
-            <h2 className="heading-display" style={{ fontSize: "clamp(2.4rem, 3.5vw, 3.5rem)", fontStyle: "italic", marginBottom: "2rem", color: "var(--text-muted)" }}>
-              of young artists
-            </h2>
-            <div className="divider-thick" style={{ marginBottom: "2rem" }} />
-            <p style={{ fontFamily: "DM Sans, sans-serif", fontSize: "1rem", fontWeight: 300, color: "var(--text-body)", lineHeight: 1.85, marginBottom: "1.5rem" }}>
-              Next Scene NY is the first teen-founded and entirely teen-led theater company in Rockland County.
-              Founded in 2025 by Roy Pan as a freshman in high school, the company gives young artists the opportunity
-              to create, direct, and perform professional-quality productions.
-            </p>
-            <p style={{ fontFamily: "DM Sans, sans-serif", fontSize: "1rem", fontWeight: 300, color: "var(--text-body)", lineHeight: 1.85, marginBottom: "2.5rem" }}>
-              Every aspect of the organization is led by teens — from casting and choreography to production design
-              and musical direction.
-            </p>
-            <a href="#mission" className="nav-link" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", fontWeight: 500, fontSize: "0.8rem" }}>
-              Our Mission <Icon name="ArrowRight" size={14} />
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* ── MISSION ── */}
-      <section id="mission" style={{ backgroundColor: "var(--bg-warm)", borderTop: "1px solid var(--border-light)", borderBottom: "1px solid var(--border-light)", padding: "8rem 0" }}>
-        <div style={{ maxWidth: "1360px", margin: "0 auto", padding: "0 2.5rem" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "6rem", alignItems: "start" }}>
+      {/* ── FEATURED ANNOUNCEMENT ── */}
+      <section style={{ backgroundColor: "var(--bg-surface)", borderBottom: "1px solid var(--border)", padding: "5rem 0" }}>
+        <div style={{ maxWidth: "1340px", margin: "0 auto", padding: "0 2.5rem" }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "2.5rem" }}>
             <div>
-              <p className="section-label" style={{ marginBottom: "1.2rem" }}>Mission</p>
-              <h2 className="heading-display" style={{ fontSize: "clamp(2.4rem, 3.5vw, 3.6rem)", marginBottom: "2.5rem" }}>
-                Making theater more<br />
-                <em style={{ color: "var(--accent)" }}>inclusive and accessible</em>
+              <p className="section-label" style={{ marginBottom: "0.6rem" }}>Featured</p>
+              <h2 style={{ fontFamily: "Cormorant Garamond, serif", fontSize: "2.6rem", fontWeight: 400, color: "var(--text-primary)", lineHeight: 1 }}>
+                Now Performing and Casting
               </h2>
-              <div style={{ borderLeft: "3px solid var(--accent)", paddingLeft: "1.75rem", marginBottom: "2.5rem" }}>
-                <p className="heading-display" style={{ fontSize: "1.25rem", fontStyle: "italic", color: "var(--text-dark)", lineHeight: 1.55 }}>
-                  "A space where every young artist<br />can find their role."
-                </p>
+            </div>
+            <Link to="/productions" className="btn-text">
+              View All <Icon name="ArrowRight" size={13} />
+            </Link>
+          </div>
+
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1.25rem" }}>
+            {/* Card 1 */}
+            <div className="promo-card" style={{ padding: "2.25rem", position: "relative", overflow: "hidden" }}>
+              <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "3px", backgroundColor: "var(--accent)" }} />
+              <div style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", backgroundColor: "var(--accent-dim)", padding: "0.35rem 0.75rem", marginBottom: "1.5rem" }}>
+                <div style={{ width: "6px", height: "6px", borderRadius: "50%", backgroundColor: "var(--accent)" }} />
+                <span style={{ fontFamily: "DM Sans, sans-serif", fontSize: "0.65rem", fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--accent)" }}>On Sale Now</span>
               </div>
-              <div style={{
-                display: "inline-flex", alignItems: "center", gap: "0.75rem",
-                padding: "0.9rem 1.25rem",
-                backgroundColor: "var(--bg-white)",
-                border: "1px solid var(--border-light)",
-                boxShadow: "var(--shadow-sm)",
-              }}>
-                <Icon name="HandHeart" size={15} style={{ color: "var(--accent)", flexShrink: 0 }} />
-                <span style={{ fontFamily: "DM Sans, sans-serif", fontSize: "0.75rem", color: "var(--text-body)", letterSpacing: "0.03em" }}>
-                  In partnership with Rockland County YMCA
-                </span>
-              </div>
+              <h3 style={{ fontFamily: "Cormorant Garamond, serif", fontSize: "1.75rem", color: "var(--text-primary)", lineHeight: 1.15, marginBottom: "0.75rem" }}>Tickets On Sale</h3>
+              <p style={{ fontFamily: "DM Sans, sans-serif", fontSize: "0.85rem", fontWeight: 300, color: "var(--text-secondary)", lineHeight: 1.7, marginBottom: "1.75rem" }}>
+                See our latest performance and reserve your seats for an unforgettable evening of teen-led theater.
+              </p>
+              <Link to="/productions" className="btn-red" style={{ padding: "0.65rem 1.4rem" }}>
+                <Icon name="Ticket" size={13} />
+                Purchase Tickets
+              </Link>
             </div>
 
-            <div style={{ paddingTop: "3.5rem" }}>
-              <p style={{ fontFamily: "DM Sans, sans-serif", fontSize: "1rem", fontWeight: 300, color: "var(--text-body)", lineHeight: 1.9, marginBottom: "1.5rem" }}>
-                Our mission is to provide teens with the chance to lead, create, and perform.
-                We create a space where every young artist can find their role onstage, backstage,
-                or as part of a creative team — all offered with no tuition.
+            {/* Card 2 */}
+            <div className="promo-card" style={{ padding: "2.25rem", position: "relative", overflow: "hidden" }}>
+              <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "3px", backgroundColor: "var(--gold)" }} />
+              <div style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", backgroundColor: "rgba(201,149,42,0.12)", padding: "0.35rem 0.75rem", marginBottom: "1.5rem" }}>
+                <Icon name="Star" size={11} style={{ color: "var(--gold)" }} />
+                <span style={{ fontFamily: "DM Sans, sans-serif", fontSize: "0.65rem", fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--gold)" }}>2026 Main-Stage</span>
+              </div>
+              <h3 style={{ fontFamily: "Cormorant Garamond, serif", fontSize: "1.75rem", color: "var(--text-primary)", lineHeight: 1.15, marginBottom: "0.3rem" }}>Mean Girls</h3>
+              <p style={{ fontFamily: "DM Sans, sans-serif", fontSize: "0.72rem", color: "var(--text-muted)", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: "0.75rem" }}>Full Broadway Version</p>
+              <p style={{ fontFamily: "DM Sans, sans-serif", fontSize: "0.85rem", fontWeight: 300, color: "var(--text-secondary)", lineHeight: 1.7, marginBottom: "1.75rem" }}>
+                Our upcoming flagship production performed by an all-teen cast and crew.
               </p>
-              <p style={{ fontFamily: "DM Sans, sans-serif", fontSize: "1rem", fontWeight: 300, color: "var(--text-body)", lineHeight: 1.9 }}>
-                We work with the Rockland County YMCA and their Teens in Action program to expand
-                opportunities for youth involvement. Through storytelling, hands-on experience, and teamwork,
-                we build community, inspire confidence, and cultivate the next generation of theater makers.
+              <Link to="/productions" className="btn-ghost" style={{ padding: "0.65rem 1.4rem" }}>
+                View Production
+              </Link>
+            </div>
+
+            {/* Card 3 */}
+            <div className="promo-card" style={{ padding: "2.25rem", position: "relative", overflow: "hidden" }}>
+              <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "3px", backgroundColor: "var(--bg-surface3)" }} />
+              <div style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", backgroundColor: "rgba(245,241,232,0.06)", padding: "0.35rem 0.75rem", marginBottom: "1.5rem" }}>
+                <Icon name="Music" size={11} style={{ color: "var(--text-secondary)" }} />
+                <span style={{ fontFamily: "DM Sans, sans-serif", fontSize: "0.65rem", fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--text-secondary)" }}>Seasonal</span>
+              </div>
+              <h3 style={{ fontFamily: "Cormorant Garamond, serif", fontSize: "1.75rem", color: "var(--text-primary)", lineHeight: 1.15, marginBottom: "0.75rem" }}>Seasonal Cabarets</h3>
+              <p style={{ fontFamily: "DM Sans, sans-serif", fontSize: "0.85rem", fontWeight: 300, color: "var(--text-secondary)", lineHeight: 1.7, marginBottom: "1.75rem" }}>
+                Themed performances by all-teen casts across Rockland County venues.
               </p>
+              <Link to="/cabarets" className="btn-ghost" style={{ padding: "0.65rem 1.4rem" }}>
+                Explore Cabarets
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── TEAM ── */}
-      <section id="team" style={{ maxWidth: "1360px", margin: "0 auto", padding: "8rem 2.5rem" }}>
-        <div style={{ marginBottom: "4rem" }}>
-          <p className="section-label" style={{ marginBottom: "1rem" }}>Leadership</p>
-          <h2 className="heading-display" style={{ fontSize: "clamp(2.2rem, 3vw, 3rem)" }}>Meet the team</h2>
-        </div>
-
-        <div style={{ display: "grid", gridTemplateColumns: "1.4fr 1fr", gap: "1.5rem" }}>
-          {/* Roy Pan */}
-          <div className="card-light" style={{ padding: "3rem", position: "relative", overflow: "hidden" }}>
-            <div style={{ position: "absolute", top: 0, left: 0, width: "4px", height: "100%", backgroundColor: "var(--accent)" }} />
-            <div style={{ paddingLeft: "0.5rem" }}>
-              <div style={{ width: "64px", height: "64px", backgroundColor: "var(--accent-light)", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "1.5rem" }}>
-                <Icon name="User" size={24} style={{ color: "var(--accent)" }} />
+      {/* ── ABOUT PREVIEW ── */}
+      <section style={{ padding: "6rem 0" }}>
+        <div style={{ maxWidth: "1340px", margin: "0 auto", padding: "0 2.5rem" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "7rem", alignItems: "center" }}>
+            <div style={{ position: "relative" }}>
+              <div style={{ aspectRatio: "3/4", backgroundImage: `url(${HERO_IMG})`, backgroundSize: "cover", backgroundPosition: "center top" }} />
+              <div style={{ position: "absolute", bottom: "-1.5rem", right: "-1.5rem", backgroundColor: "var(--accent)", padding: "1.75rem 2rem" }}>
+                <p style={{ fontFamily: "Cormorant Garamond, serif", fontSize: "2.5rem", color: "#fff", lineHeight: 1 }}>2025</p>
+                <p style={{ fontFamily: "DM Sans, sans-serif", fontSize: "0.58rem", color: "rgba(255,255,255,0.75)", letterSpacing: "0.14em", textTransform: "uppercase", marginTop: "0.3rem" }}>Founded</p>
               </div>
-              <h3 className="heading-display" style={{ fontSize: "2rem", marginBottom: "0.3rem" }}>Roy Pan</h3>
-              <p style={{ fontFamily: "DM Sans, sans-serif", fontSize: "0.72rem", color: "var(--accent)", letterSpacing: "0.12em", textTransform: "uppercase", fontWeight: 500, marginBottom: "1.5rem" }}>
-                Founder & Artistic Director
+            </div>
+            <div>
+              <p className="section-label" style={{ marginBottom: "1rem" }}>About Next Scene</p>
+              <h2 style={{ fontFamily: "Cormorant Garamond, serif", fontSize: "clamp(2.4rem, 3.5vw, 3.4rem)", fontWeight: 400, color: "var(--text-primary)", lineHeight: 1.1, marginBottom: "1.75rem" }}>
+                A teen-led theater<br /><em style={{ color: "var(--text-secondary)" }}>nonprofit</em>
+              </h2>
+              <div style={{ width: "48px", height: "2px", backgroundColor: "var(--accent)", marginBottom: "1.75rem" }} />
+              <p style={{ fontFamily: "DM Sans, sans-serif", fontSize: "0.97rem", fontWeight: 300, color: "var(--text-secondary)", lineHeight: 1.85, marginBottom: "2rem" }}>
+                Next Scene NY is the first teen-founded and teen-led nonprofit theater company in Rockland County, established in 2025. We give young artists the chance to create, lead, and perform while taking part in every aspect of production — from directing and choreography to stage crew and creative teams.
               </p>
-              <div className="divider" style={{ marginBottom: "1.5rem" }} />
-              <p style={{ fontFamily: "DM Sans, sans-serif", fontSize: "0.92rem", fontWeight: 300, color: "var(--text-body)", lineHeight: 1.85 }}>
-                Roy Pan founded Next Scene NY as a freshman in high school, creating the first teen-led theater company
-                in Rockland County. He serves as director and musical director for teen-directed and performed productions.
-                Roy has trained with industry professionals for over three years and has performed since age four in community
-                theater and Off-Broadway productions.
-              </p>
+              <Link to="/about" className="btn-ghost">
+                Learn More About Us <Icon name="ArrowRight" size={13} />
+              </Link>
             </div>
           </div>
+        </div>
+      </section>
 
-          {/* Charleigh Taylor */}
-          <div className="card-warm" style={{ padding: "3rem", position: "relative", overflow: "hidden" }}>
-            <div style={{ position: "absolute", top: 0, left: 0, width: "4px", height: "100%", backgroundColor: "var(--gold)" }} />
-            <div style={{ paddingLeft: "0.5rem" }}>
-              <div style={{ width: "64px", height: "64px", backgroundColor: "var(--bg-soft)", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "1.5rem" }}>
-                <Icon name="User" size={24} style={{ color: "var(--gold)" }} />
-              </div>
-              <h3 className="heading-display" style={{ fontSize: "2rem", marginBottom: "0.3rem" }}>Charleigh Taylor</h3>
-              <p style={{ fontFamily: "DM Sans, sans-serif", fontSize: "0.72rem", color: "var(--gold)", letterSpacing: "0.12em", textTransform: "uppercase", fontWeight: 500, marginBottom: "1.5rem" }}>
-                Choreographer & Assistant Director
-              </p>
-              <div className="divider" style={{ marginBottom: "1.5rem" }} />
-              <p style={{ fontFamily: "DM Sans, sans-serif", fontSize: "0.92rem", fontWeight: 300, color: "var(--text-body)", lineHeight: 1.85 }}>
-                More about our team coming soon as Next Scene NY grows.
-              </p>
+      {/* ── MISSION BANNER ── */}
+      <section style={{ backgroundColor: "var(--bg-surface)", borderTop: "1px solid var(--border)", borderBottom: "1px solid var(--border)", padding: "5rem 0" }}>
+        <div style={{ maxWidth: "1340px", margin: "0 auto", padding: "0 2.5rem" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "6rem", alignItems: "center", marginBottom: "4rem" }}>
+            <div>
+              <p className="section-label" style={{ marginBottom: "1rem" }}>Our Mission</p>
+              <h2 style={{ fontFamily: "Cormorant Garamond, serif", fontSize: "clamp(2.2rem, 3vw, 3rem)", fontWeight: 400, color: "var(--text-primary)", lineHeight: 1.15 }}>
+                Inclusive. Accessible.<br /><em style={{ color: "var(--accent-soft)" }}>Powered by teens.</em>
+              </h2>
             </div>
+            <p style={{ fontFamily: "DM Sans, sans-serif", fontSize: "1rem", fontWeight: 300, color: "var(--text-secondary)", lineHeight: 1.85 }}>
+              Our mission is to make theater more accessible and inclusive by giving teens the chance to lead, create, and perform in a supportive environment with no tuition. We work with the Rockland County YMCA and their Teens in Action program to expand opportunities for youth involvement.
+            </p>
+          </div>
+
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", borderTop: "1px solid var(--border)" }}>
+            {[
+              { num: "1st", label: "In Rockland County" },
+              { num: "100%", label: "Teen-Led Operations" },
+              { num: "$0", label: "Tuition for Participants" },
+              { num: "2025", label: "Year Founded" },
+            ].map((item, i) => (
+              <div key={i} style={{ padding: "2.25rem 2rem", borderRight: i < 3 ? "1px solid var(--border)" : "none" }}>
+                <p style={{ fontFamily: "Cormorant Garamond, serif", fontSize: "3rem", color: "var(--accent)", lineHeight: 1, marginBottom: "0.5rem" }}>{item.num}</p>
+                <p style={{ fontFamily: "DM Sans, sans-serif", fontSize: "0.73rem", color: "var(--text-muted)", letterSpacing: "0.08em", textTransform: "uppercase" }}>{item.label}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* ── GET INVOLVED ── */}
-      <section id="get-involved" style={{ backgroundColor: "var(--bg-soft)", borderTop: "1px solid var(--border-light)", borderBottom: "1px solid var(--border-light)", padding: "8rem 0" }}>
-        <div style={{ maxWidth: "1360px", margin: "0 auto", padding: "0 2.5rem" }}>
-          <div style={{ textAlign: "center", marginBottom: "4.5rem" }}>
-            <p className="section-label" style={{ marginBottom: "1rem" }}>Get Involved</p>
-            <h2 className="heading-display" style={{ fontSize: "clamp(2.4rem, 3.5vw, 3.5rem)" }}>
-              There's a place for every<br />
-              <em style={{ color: "var(--accent)" }}>young artist</em>
+      <section style={{ padding: "5.5rem 0" }}>
+        <div style={{ maxWidth: "1340px", margin: "0 auto", padding: "0 2.5rem" }}>
+          <div style={{ textAlign: "center", marginBottom: "3rem" }}>
+            <p className="section-label" style={{ marginBottom: "0.75rem" }}>Get Involved</p>
+            <h2 style={{ fontFamily: "Cormorant Garamond, serif", fontSize: "clamp(2.4rem, 3.5vw, 3.2rem)", fontWeight: 400, color: "var(--text-primary)" }}>
+              Find your place onstage or<br /><em style={{ color: "var(--text-secondary)" }}>behind the scenes</em>
             </h2>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1.5rem" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1px", backgroundColor: "var(--border)" }}>
             {[
-              { icon: "Mic2", num: "01", label: "Perform", desc: "Join productions and develop your voice onstage. No prior experience required.", iconBg: "var(--accent-light)", iconColor: "var(--accent)" },
-              { icon: "Clapperboard", num: "02", label: "Create", desc: "Contribute backstage: choreography, music, direction, costume, and set design.", iconBg: "var(--bg-warm)", iconColor: "var(--text-dark)" },
-              { icon: "Heart", num: "03", label: "Support", desc: "Donate or partner with us to expand access to teen-led theater opportunities.", iconBg: "rgba(184,151,74,0.12)", iconColor: "var(--gold)" },
+              { num: "01", icon: "Mic2", label: "Perform", desc: "Join productions and live performances. No prior experience required — open to all teens.", color: "var(--accent)" },
+              { num: "02", icon: "Clapperboard", label: "Create", desc: "Help lead choreography, music direction, stage management, and creative work behind the scenes.", color: "var(--gold)" },
+              { num: "03", icon: "Heart", label: "Support", desc: "Help expand opportunities for young artists through donations, sponsorship, or partnership.", color: "var(--text-secondary)" },
             ].map((item, i) => (
-              <div key={i} className="card-light" style={{ padding: "3rem 2.5rem" }}>
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "2rem" }}>
-                  <div style={{ width: "48px", height: "48px", backgroundColor: item.iconBg, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                    <Icon name={item.icon} size={18} style={{ color: item.iconColor }} />
+              <div key={i} style={{ backgroundColor: "var(--bg-surface)", padding: "3rem 2.5rem", transition: "background-color 0.2s", cursor: "default" }}
+                onMouseEnter={e => (e.currentTarget.style.backgroundColor = "var(--bg-surface2)")}
+                onMouseLeave={e => (e.currentTarget.style.backgroundColor = "var(--bg-surface)")}
+              >
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "1.5rem" }}>
+                  <div style={{ width: "46px", height: "46px", border: `1px solid ${item.color}`, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                    <Icon name={item.icon} size={18} style={{ color: item.color }} />
                   </div>
-                  <span className="heading-display" style={{ fontSize: "3.5rem", color: "rgba(26,22,18,0.07)", lineHeight: 1, userSelect: "none" }}>{item.num}</span>
+                  <span style={{ fontFamily: "Cormorant Garamond, serif", fontSize: "4rem", color: "rgba(245,241,232,0.04)", lineHeight: 1 }}>{item.num}</span>
                 </div>
-                <h3 className="heading-display" style={{ fontSize: "1.9rem", marginBottom: "1rem" }}>{item.label}</h3>
-                <p style={{ fontFamily: "DM Sans, sans-serif", fontSize: "0.88rem", fontWeight: 300, color: "var(--text-muted)", lineHeight: 1.75 }}>{item.desc}</p>
+                <h3 style={{ fontFamily: "Cormorant Garamond, serif", fontSize: "2rem", color: "var(--text-primary)", marginBottom: "0.85rem" }}>{item.label}</h3>
+                <p style={{ fontFamily: "DM Sans, sans-serif", fontSize: "0.85rem", fontWeight: 300, color: "var(--text-secondary)", lineHeight: 1.75 }}>{item.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── CTA / CONTACT ── */}
-      <section id="contact" style={{ padding: "8rem 2.5rem", backgroundColor: "var(--bg-white)" }}>
-        <div style={{ maxWidth: "1360px", margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "6rem", alignItems: "center" }}>
-          <div>
-            <p className="section-label" style={{ marginBottom: "1.2rem" }}>Support the Arts</p>
-            <h2 className="heading-display" style={{ fontSize: "clamp(2.6rem, 4vw, 4rem)", marginBottom: "1.5rem" }}>
-              Support the next scene<br />
-              <em style={{ color: "var(--accent)" }}>of young artists</em>
-            </h2>
-            <div className="divider-thick" style={{ marginBottom: "2rem" }} />
-            <p style={{ fontFamily: "DM Sans, sans-serif", fontSize: "1rem", fontWeight: 300, color: "var(--text-body)", lineHeight: 1.85 }}>
-              Help us create more opportunities for teens to lead, perform, and grow through theater.
-              Your support directly funds productions, workshops, and free participation for all teens.
-            </p>
-          </div>
-
-          <div style={{
-            backgroundColor: "var(--bg-warm)",
-            border: "1px solid var(--border-light)",
-            padding: "3.5rem",
-            boxShadow: "var(--shadow-md)",
-          }}>
-            <h3 className="heading-display" style={{ fontSize: "1.6rem", marginBottom: "0.5rem" }}>Get in Touch</h3>
-            <p style={{ fontFamily: "DM Sans, sans-serif", fontSize: "0.85rem", color: "var(--text-muted)", marginBottom: "2.5rem", fontWeight: 300 }}>
-              Reach out about auditions, volunteering, sponsorships, or press.
-            </p>
-
-            {[
-              { icon: "Mail", label: "Email us", value: "hello@nextsceneny.org" },
-              { icon: "MapPin", label: "Location", value: "Rockland County, New York" },
-              { icon: "Building2", label: "Partner", value: "Rockland County YMCA" },
-            ].map((item, i) => (
-              <div key={i} style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: i < 2 ? "1.5rem" : "2.5rem" }}>
-                <div style={{ width: "36px", height: "36px", flexShrink: 0, backgroundColor: "var(--accent-light)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                  <Icon name={item.icon} size={14} style={{ color: "var(--accent)" }} />
-                </div>
-                <div>
-                  <p style={{ fontFamily: "DM Sans, sans-serif", fontSize: "0.62rem", letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--text-faint)", marginBottom: "0.1rem" }}>{item.label}</p>
-                  <p style={{ fontFamily: "DM Sans, sans-serif", fontSize: "0.85rem", color: "var(--text-dark)" }}>{item.value}</p>
-                </div>
-              </div>
-            ))}
-
-            <div style={{ display: "flex", gap: "0.75rem" }}>
-              <a href="#donate" className="btn-primary" style={{ flex: 1, justifyContent: "center" }}>Donate</a>
-              <a href="#contact" className="btn-outline" style={{ flex: 1, justifyContent: "center" }}>Contact Us</a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── FOOTER ── */}
-      <footer style={{ backgroundColor: "var(--text-dark)", padding: "4rem 2.5rem 3rem" }}>
-        <div style={{ maxWidth: "1360px", margin: "0 auto" }}>
-          <div style={{
-            display: "grid", gridTemplateColumns: "1.5fr 1fr", gap: "4rem",
-            paddingBottom: "3rem",
-            borderBottom: "1px solid rgba(255,255,255,0.08)",
-            marginBottom: "2rem",
-          }}>
+      {/* ── NEWSLETTER ── */}
+      <section style={{ backgroundColor: "var(--bg-surface)", borderTop: "1px solid var(--border)", padding: "5rem 0" }}>
+        <div style={{ maxWidth: "1340px", margin: "0 auto", padding: "0 2.5rem" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "6rem", alignItems: "center" }}>
             <div>
-              <h3 className="heading-display" style={{ fontSize: "1.5rem", color: "#FDFAF5", marginBottom: "0.6rem" }}>Next Scene NY</h3>
-              <p style={{ fontFamily: "DM Sans, sans-serif", fontSize: "0.82rem", fontWeight: 300, color: "rgba(253,250,245,0.45)", lineHeight: 1.7, maxWidth: "320px" }}>
-                A nonprofit theater company by the next generation of young artists.
+              <p className="section-label" style={{ marginBottom: "1rem" }}>Stay Updated</p>
+              <h2 style={{ fontFamily: "Cormorant Garamond, serif", fontSize: "clamp(2.2rem, 3vw, 3rem)", fontWeight: 400, color: "var(--text-primary)", marginBottom: "1rem" }}>
+                Join Our Mailing List
+              </h2>
+              <p style={{ fontFamily: "DM Sans, sans-serif", fontSize: "0.95rem", fontWeight: 300, color: "var(--text-secondary)", lineHeight: 1.75 }}>
+                Get updates about productions, auditions, cabarets, and performances.
               </p>
             </div>
             <div>
-              <p style={{ fontFamily: "DM Sans, sans-serif", fontSize: "0.62rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "rgba(253,250,245,0.3)", marginBottom: "1.2rem" }}>Navigate</p>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0.65rem 2rem" }}>
-                {NAV_LINKS.map((link) => (
-                  <a key={link} href={`#${link.toLowerCase().replace(" ", "-")}`}
-                    style={{ fontFamily: "DM Sans, sans-serif", fontSize: "0.8rem", color: "rgba(253,250,245,0.5)", textDecoration: "none", transition: "color 0.2s" }}
-                    onMouseEnter={e => (e.currentTarget.style.color = "#FDFAF5")}
-                    onMouseLeave={e => (e.currentTarget.style.color = "rgba(253,250,245,0.5)")}
-                  >
-                    {link}
-                  </a>
-                ))}
+              <div style={{ display: "flex", marginBottom: "0.85rem" }}>
+                <input type="email" placeholder="Email Address" className="input-dark" style={{ flex: 1, borderRight: "none" }} />
+                <button className="btn-red">Sign Up</button>
               </div>
+              <p style={{ fontFamily: "DM Sans, sans-serif", fontSize: "0.72rem", color: "var(--text-muted)" }}>
+                We respect your privacy and you can unsubscribe anytime.
+              </p>
             </div>
           </div>
-
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-            <p style={{ fontFamily: "DM Sans, sans-serif", fontSize: "0.7rem", color: "rgba(253,250,245,0.3)" }}>
-              © 2025 Next Scene NY. All rights reserved. Nonprofit organization.
-            </p>
-            <p style={{ fontFamily: "DM Sans, sans-serif", fontSize: "0.7rem", color: "rgba(253,250,245,0.3)" }}>
-              Rockland County, New York
-            </p>
-          </div>
         </div>
-      </footer>
+      </section>
 
-    </div>
+    </Layout>
   );
 }
