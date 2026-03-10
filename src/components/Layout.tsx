@@ -1,45 +1,45 @@
 import { Link, useLocation } from "react-router-dom";
 import Icon from "@/components/ui/icon";
 
-const TICKER_TEXT = [
+const TICKER_ITEMS = [
   "Tickets Are On Sale",
   "Click Here to Purchase",
   "Upcoming Teen-Led Productions",
-  "Contact Us",
-  "Mean Girls — Full Broadway Version",
+  "Mean Girls — Full Broadway Version — 2026",
   "Seasonal Cabarets in Rockland County",
+  "Auditions Now Open",
+  "Contact Us",
   "Tickets Are On Sale",
   "Click Here to Purchase",
   "Upcoming Teen-Led Productions",
-  "Contact Us",
-  "Mean Girls — Full Broadway Version",
+  "Mean Girls — Full Broadway Version — 2026",
   "Seasonal Cabarets in Rockland County",
+  "Auditions Now Open",
+  "Contact Us",
 ];
 
 export default function Layout({ children }: { children: React.ReactNode }) {
-  const location = useLocation();
+  const { pathname } = useLocation();
 
   return (
-    <div style={{ backgroundColor: "var(--bg-deep)", minHeight: "100vh", display: "flex", flexDirection: "column" }}>
+    <div style={{ backgroundColor: "var(--bg)", minHeight: "100vh", display: "flex", flexDirection: "column" }}>
 
-      {/* ── ANNOUNCEMENT TICKER ── */}
+      {/* ── TICKER ── */}
       <div style={{
         backgroundColor: "var(--accent)",
-        overflow: "hidden",
-        height: "36px",
-        display: "flex",
-        alignItems: "center",
+        height: "36px", overflow: "hidden",
+        display: "flex", alignItems: "center",
       }}>
-        <div className="animate-ticker" style={{ display: "flex", alignItems: "center", gap: 0 }}>
-          {TICKER_TEXT.map((item, i) => (
+        <div className="animate-ticker">
+          {TICKER_ITEMS.map((item, i) => (
             <span key={i} style={{
               display: "inline-flex", alignItems: "center", gap: "1.5rem",
-              fontFamily: "DM Sans, sans-serif", fontSize: "0.72rem",
-              fontWeight: 500, letterSpacing: "0.1em", textTransform: "uppercase",
+              fontFamily: "DM Sans, sans-serif", fontSize: "0.7rem",
+              fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase",
               color: "#fff", padding: "0 2rem",
             }}>
               {item}
-              <span style={{ color: "rgba(255,255,255,0.4)", fontSize: "0.5rem" }}>◆</span>
+              <span style={{ color: "rgba(255,255,255,0.35)", fontSize: "0.45rem" }}>◆</span>
             </span>
           ))}
         </div>
@@ -48,29 +48,29 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       {/* ── HEADER ── */}
       <header style={{
         position: "sticky", top: 0, zIndex: 100,
-        backgroundColor: "rgba(14,15,18,0.95)",
-        backdropFilter: "blur(16px)",
+        backgroundColor: "rgba(248,245,239,0.97)",
+        backdropFilter: "blur(14px)",
         borderBottom: "1px solid var(--border)",
+        boxShadow: "0 1px 8px rgba(26,22,18,0.06)",
       }}>
         <div style={{
-          maxWidth: "1340px", margin: "0 auto",
-          padding: "0 2.5rem",
-          height: "68px",
+          maxWidth: "1360px", margin: "0 auto",
+          padding: "0 2.5rem", height: "68px",
           display: "flex", alignItems: "center", justifyContent: "space-between",
         }}>
           {/* Logo */}
-          <Link to="/" style={{ textDecoration: "none", display: "flex", alignItems: "baseline", gap: "0.6rem" }}>
+          <Link to="/" style={{ textDecoration: "none", display: "flex", alignItems: "baseline", gap: "0.55rem" }}>
             <span style={{
               fontFamily: "Cormorant Garamond, serif",
               fontSize: "1.5rem", fontWeight: 500,
-              color: "var(--text-primary)", letterSpacing: "0.01em", lineHeight: 1,
+              color: "var(--text)", letterSpacing: "0.01em", lineHeight: 1,
             }}>
               Next Scene NY
             </span>
             <span style={{
-              fontFamily: "DM Sans, sans-serif", fontSize: "0.55rem",
-              fontWeight: 600, letterSpacing: "0.18em",
-              textTransform: "uppercase", color: "var(--accent)",
+              fontFamily: "DM Sans, sans-serif", fontSize: "0.52rem",
+              fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase",
+              color: "var(--accent)",
             }}>
               Theater Co.
             </span>
@@ -84,10 +84,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               { label: "About Us", path: "/about" },
             ].map(({ label, path }) => (
               <Link
-                key={path}
-                to={path}
-                className="nav-link"
-                style={{ color: location.pathname === path ? "var(--text-primary)" : undefined }}
+                key={path} to={path} className="nav-link"
+                style={{ color: pathname === path ? "var(--text)" : undefined,
+                         fontWeight: pathname === path ? 600 : undefined }}
               >
                 {label}
               </Link>
@@ -95,38 +94,41 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </nav>
 
           {/* CTA */}
-          <Link to="/productions" className="btn-red" style={{ padding: "0.65rem 1.5rem" }}>
-            <Icon name="Ticket" size={14} />
+          <Link to="/productions" className="btn-red" style={{ padding: "0.65rem 1.4rem" }}>
+            <Icon name="Ticket" size={13} />
             Get Tickets
           </Link>
         </div>
       </header>
 
-      {/* ── PAGE CONTENT ── */}
+      {/* ── MAIN ── */}
       <main style={{ flex: 1 }}>{children}</main>
 
       {/* ── FOOTER ── */}
       <footer style={{
-        backgroundColor: "var(--bg-surface)",
-        borderTop: "1px solid var(--border)",
-        padding: "4.5rem 0 2.5rem",
+        backgroundColor: "var(--text)",
+        borderTop: "none",
+        padding: "5rem 0 2.5rem",
       }}>
-        <div style={{ maxWidth: "1340px", margin: "0 auto", padding: "0 2.5rem" }}>
-          {/* Top */}
-          <div style={{ display: "grid", gridTemplateColumns: "1.6fr 1fr 1fr", gap: "4rem", paddingBottom: "3.5rem", borderBottom: "1px solid var(--border)" }}>
+        <div style={{ maxWidth: "1360px", margin: "0 auto", padding: "0 2.5rem" }}>
+          <div style={{
+            display: "grid", gridTemplateColumns: "1.8fr 1fr 1.2fr",
+            gap: "5rem", paddingBottom: "4rem",
+            borderBottom: "1px solid rgba(255,255,255,0.1)",
+            marginBottom: "2.5rem",
+          }}>
             {/* Brand */}
             <div>
-              <h3 style={{ fontFamily: "Cormorant Garamond, serif", fontSize: "1.6rem", color: "var(--text-primary)", marginBottom: "1rem" }}>
+              <h3 style={{ fontFamily: "Cormorant Garamond, serif", fontSize: "1.75rem", color: "#F8F5EF", marginBottom: "1rem", lineHeight: 1 }}>
                 Next Scene NY
               </h3>
-              <p style={{ fontFamily: "DM Sans, sans-serif", fontSize: "0.82rem", fontWeight: 300, color: "var(--text-secondary)", lineHeight: 1.75, maxWidth: "340px", marginBottom: "1.5rem" }}>
+              <p style={{ fontFamily: "DM Sans, sans-serif", fontSize: "0.85rem", fontWeight: 300, color: "rgba(248,245,239,0.5)", lineHeight: 1.8, maxWidth: "360px", marginBottom: "2rem" }}>
                 Next Scene NY is the first teen-founded and teen-led nonprofit theater company in Rockland County, established in 2025.
               </p>
-              <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-text"
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
+                style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", fontFamily: "DM Sans, sans-serif", fontSize: "0.75rem", fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--accent-soft)", textDecoration: "none", transition: "color 0.2s" }}
+                onMouseEnter={e => (e.currentTarget.style.color = "#F8F5EF")}
+                onMouseLeave={e => (e.currentTarget.style.color = "var(--accent-soft)")}
               >
                 <Icon name="Instagram" size={14} />
                 Follow Us On Instagram
@@ -135,20 +137,18 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
             {/* Quick Links */}
             <div>
-              <p className="section-label" style={{ marginBottom: "1.2rem" }}>Quick Links</p>
-              <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
+              <p style={{ fontFamily: "DM Sans, sans-serif", fontSize: "0.62rem", fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "rgba(248,245,239,0.35)", marginBottom: "1.25rem" }}>
+                Quick Links
+              </p>
+              <div style={{ display: "flex", flexDirection: "column", gap: "0.8rem" }}>
                 {[
                   { label: "About Next Scene", path: "/about" },
                   { label: "Upcoming Productions", path: "/productions" },
                   { label: "Cabarets", path: "/cabarets" },
                 ].map(({ label, path }) => (
-                  <Link key={path} to={path} style={{
-                    fontFamily: "DM Sans, sans-serif", fontSize: "0.82rem",
-                    color: "var(--text-secondary)", textDecoration: "none",
-                    transition: "color 0.2s",
-                  }}
-                    onMouseEnter={e => (e.currentTarget.style.color = "var(--text-primary)")}
-                    onMouseLeave={e => (e.currentTarget.style.color = "var(--text-secondary)")}
+                  <Link key={path} to={path} style={{ fontFamily: "DM Sans, sans-serif", fontSize: "0.85rem", color: "rgba(248,245,239,0.55)", textDecoration: "none", transition: "color 0.2s" }}
+                    onMouseEnter={e => (e.currentTarget.style.color = "#F8F5EF")}
+                    onMouseLeave={e => (e.currentTarget.style.color = "rgba(248,245,239,0.55)")}
                   >
                     {label}
                   </Link>
@@ -158,27 +158,28 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
             {/* Contact */}
             <div>
-              <p className="section-label" style={{ marginBottom: "1.2rem" }}>Contact</p>
-              <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
+              <p style={{ fontFamily: "DM Sans, sans-serif", fontSize: "0.62rem", fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "rgba(248,245,239,0.35)", marginBottom: "1.25rem" }}>
+                Contact
+              </p>
+              <div style={{ display: "flex", flexDirection: "column", gap: "0.85rem" }}>
                 {[
                   { icon: "MapPin", text: "35 S Broadway, Nyack, NY 10960" },
                   { icon: "Mail", text: "nextsceneny@gmail.com" },
                 ].map(({ icon, text }) => (
-                  <div key={text} style={{ display: "flex", alignItems: "flex-start", gap: "0.6rem" }}>
-                    <Icon name={icon} size={13} style={{ color: "var(--accent)", flexShrink: 0, marginTop: "2px" }} />
-                    <span style={{ fontFamily: "DM Sans, sans-serif", fontSize: "0.82rem", color: "var(--text-secondary)", lineHeight: 1.5 }}>{text}</span>
+                  <div key={text} style={{ display: "flex", alignItems: "flex-start", gap: "0.65rem" }}>
+                    <Icon name={icon} size={13} style={{ color: "var(--accent-soft)", flexShrink: 0, marginTop: "2px" }} />
+                    <span style={{ fontFamily: "DM Sans, sans-serif", fontSize: "0.85rem", color: "rgba(248,245,239,0.55)", lineHeight: 1.5 }}>{text}</span>
                   </div>
                 ))}
               </div>
             </div>
           </div>
 
-          {/* Bottom */}
-          <div style={{ paddingTop: "2rem", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-            <p style={{ fontFamily: "DM Sans, sans-serif", fontSize: "0.7rem", color: "var(--text-muted)" }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+            <p style={{ fontFamily: "DM Sans, sans-serif", fontSize: "0.72rem", color: "rgba(248,245,239,0.3)" }}>
               © 2025 Next Scene NY. All rights reserved. Nonprofit organization.
             </p>
-            <a href="#" style={{ fontFamily: "DM Sans, sans-serif", fontSize: "0.7rem", color: "var(--text-muted)", textDecoration: "none" }}>
+            <a href="#" style={{ fontFamily: "DM Sans, sans-serif", fontSize: "0.72rem", color: "rgba(248,245,239,0.3)", textDecoration: "none" }}>
               Privacy Policy
             </a>
           </div>
