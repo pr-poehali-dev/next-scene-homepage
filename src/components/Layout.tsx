@@ -5,11 +5,11 @@ const TICKER = [
   "Tickets Are On Sale", "·", "Click Here to Purchase", "·",
   "Mean Girls — Full Broadway Version — 2026", "·",
   "Upcoming Teen-Led Productions", "·", "Auditions Now Open", "·",
-  "Seasonal Cabarets in Rockland County", "·", "Contact Us", "·",
+  "Seasonal Cabarets in Rockland County", "·", "Donate to Support Our Mission", "·",
   "Tickets Are On Sale", "·", "Click Here to Purchase", "·",
   "Mean Girls — Full Broadway Version — 2026", "·",
   "Upcoming Teen-Led Productions", "·", "Auditions Now Open", "·",
-  "Seasonal Cabarets in Rockland County", "·", "Contact Us", "·",
+  "Seasonal Cabarets in Rockland County", "·", "Donate to Support Our Mission", "·",
 ];
 
 export default function Layout({ children }: { children: React.ReactNode }) {
@@ -18,8 +18,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div style={{ background: "var(--bg)", minHeight: "100vh", display: "flex", flexDirection: "column" }}>
 
-      {/* TICKER */}
-      <div style={{ background: "var(--red)", height: "38px", overflow: "hidden", display: "flex", alignItems: "center" }}>
+      {/* TICKER — deep navy */}
+      <div style={{ background: "var(--navy)", height: "38px", overflow: "hidden", display: "flex", alignItems: "center" }}>
         <div className="ticker-track">
           {TICKER.map((t, i) => (
             <span key={i} style={{
@@ -27,7 +27,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               fontSize: "0.65rem", fontWeight: t === "·" ? 400 : 700,
               letterSpacing: t === "·" ? "0" : "0.15em",
               textTransform: "uppercase",
-              color: t === "·" ? "rgba(255,255,255,0.4)" : "#fff",
+              color: t === "·" ? "rgba(255,255,255,0.3)" : "rgba(255,255,255,0.85)",
               padding: "0 0.75rem",
             }}>{t}</span>
           ))}
@@ -37,9 +37,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       {/* HEADER */}
       <header style={{
         position: "sticky", top: 0, zIndex: 100,
-        background: "rgba(245,242,236,0.97)",
+        background: "rgba(240,243,248,0.97)",
         backdropFilter: "blur(12px)",
-        borderBottom: "2px solid var(--ink)",
+        borderBottom: "2px solid var(--navy)",
       }}>
         <div className="container" style={{
           height: "72px", display: "flex", alignItems: "center", justifyContent: "space-between",
@@ -49,7 +49,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <span style={{
               fontFamily: "'Raleway', sans-serif",
               fontSize: "1.35rem", fontWeight: 900,
-              letterSpacing: "-0.01em", color: "var(--ink)",
+              letterSpacing: "-0.01em", color: "var(--navy)",
               textTransform: "uppercase",
             }}>
               Next Scene NY
@@ -58,7 +58,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               fontFamily: "'Raleway', sans-serif",
               fontSize: "0.52rem", fontWeight: 700,
               letterSpacing: "0.22em", textTransform: "uppercase",
-              color: "var(--red)", marginTop: "2px",
+              color: "var(--sky)", marginTop: "2px",
             }}>
               Teen Theater Company
             </span>
@@ -70,9 +70,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               { label: "Cabarets", path: "/cabarets" },
               { label: "Productions", path: "/productions" },
               { label: "About Us", path: "/about" },
+              { label: "Donate", path: "/donate" },
             ].map(({ label, path }) => (
               <Link key={path} to={path} className="nav-item"
-                style={{ color: pathname === path ? "var(--red)" : undefined }}
+                style={{
+                  color: pathname === path ? "var(--red)" : undefined,
+                  ...(label === "Donate" ? { color: pathname === path ? "var(--red)" : "var(--sky)" } : {}),
+                }}
               >
                 {label}
               </Link>
@@ -91,7 +95,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <main style={{ flex: 1 }}>{children}</main>
 
       {/* FOOTER */}
-      <footer style={{ background: "var(--ink)", padding: "5rem 0 3rem" }}>
+      <footer style={{ background: "var(--navy)", padding: "5rem 0 3rem" }}>
         <div className="container">
 
           {/* Top grid */}
@@ -124,6 +128,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 { label: "About Next Scene", path: "/about" },
                 { label: "Upcoming Productions", path: "/productions" },
                 { label: "Cabarets", path: "/cabarets" },
+                { label: "Support Us", path: "/donate" },
               ].map(({ label, path }) => (
                 <Link key={path} to={path} style={{
                   display: "block", fontFamily: "'Raleway', sans-serif",
@@ -147,7 +152,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 { icon: "Mail", text: "nextsceneny@gmail.com" },
               ].map(({ icon, text }) => (
                 <div key={text} style={{ display: "flex", alignItems: "flex-start", gap: "0.65rem", marginBottom: "0.9rem" }}>
-                  <Icon name={icon} size={13} style={{ color: "var(--red)", flexShrink: 0, marginTop: "2px" }} />
+                  <Icon name={icon} size={13} style={{ color: "var(--sky)", flexShrink: 0, marginTop: "2px" }} />
                   <span style={{ fontFamily: "'Raleway', sans-serif", fontSize: "0.85rem", color: "rgba(255,255,255,0.5)", lineHeight: 1.55 }}>{text}</span>
                 </div>
               ))}

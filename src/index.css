@@ -4,44 +4,47 @@
 
 @layer base {
   :root {
-    /* Palette */
+    /* Blue Palette */
     --white: #ffffff;
-    --cream: #faf8f4;
-    --bg: #f5f2ec;
-    --surface: #edead3; /* warm yellow-tinted */
-    --ink: #111111;
-    --ink-2: #444444;
-    --ink-3: #888888;
-    --red: #c0281e;
-    --red-hover: #a0201a;
-    --red-light: rgba(192, 40, 30, 0.08);
-    --gold: #b8880a;
-    --gold-light: rgba(184, 136, 10, 0.1);
-    --border: rgba(17, 17, 17, 0.1);
-    --border-md: rgba(17, 17, 17, 0.18);
-    --shadow: 0 2px 12px rgba(17, 17, 17, 0.08);
-    --shadow-lg: 0 8px 40px rgba(17, 17, 17, 0.12);
+    --cream: #f4f6fa;
+    --bg: #f0f3f8;
+    --surface: #e8edf5;
+    --ink: #131138;
+    --ink-2: #3a3a5c;
+    --ink-3: #7a7a9a;
+    --red: #12217f; /* Royal blue — primary accent */
+    --red-hover: #0d1a66;
+    --red-light: rgba(18, 33, 127, 0.08);
+    --gold: #095ea3; /* Medium blue — secondary accent */
+    --gold-light: rgba(9, 94, 163, 0.1);
+    --sky: #3896e3; /* Bright sky blue — highlights */
+    --sky-light: rgba(56, 150, 227, 0.12);
+    --navy: #131138; /* Deep navy */
+    --border: rgba(19, 17, 56, 0.1);
+    --border-md: rgba(19, 17, 56, 0.18);
+    --shadow: 0 2px 12px rgba(19, 17, 56, 0.08);
+    --shadow-lg: 0 8px 40px rgba(19, 17, 56, 0.14);
 
     /* shadcn compat */
-    --background: 40 20% 96%;
-    --foreground: 0 0% 7%;
+    --background: 220 30% 96%;
+    --foreground: 240 50% 12%;
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 7%;
+    --card-foreground: 240 50% 12%;
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 7%;
-    --primary: 0 0% 7%;
-    --primary-foreground: 40 20% 96%;
-    --secondary: 44 28% 88%;
-    --secondary-foreground: 0 0% 7%;
-    --muted: 44 28% 88%;
-    --muted-foreground: 0 0% 53%;
-    --accent: 4 73% 44%;
+    --popover-foreground: 240 50% 12%;
+    --primary: 240 50% 12%;
+    --primary-foreground: 220 30% 96%;
+    --secondary: 220 28% 88%;
+    --secondary-foreground: 240 50% 12%;
+    --muted: 220 28% 88%;
+    --muted-foreground: 240 20% 53%;
+    --accent: 224 75% 44%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 100%;
-    --border: 36 20% 84%;
-    --input: 36 20% 84%;
-    --ring: 0 0% 7%;
+    --border: 220 20% 84%;
+    --input: 220 20% 84%;
+    --ring: 240 50% 12%;
     --radius: 0rem;
   }
 }
@@ -160,7 +163,7 @@
   background: var(--red-hover);
   border-color: var(--red-hover);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(192, 40, 30, 0.28);
+  box-shadow: 0 6px 20px rgba(18, 33, 127, 0.32);
 }
 
 .btn-outline-dark {
@@ -277,7 +280,7 @@
   color: var(--ink-3);
 }
 .inp:focus {
-  border-color: var(--red);
+  border-color: var(--sky);
 }
 
 /* ── Dividers ── */
